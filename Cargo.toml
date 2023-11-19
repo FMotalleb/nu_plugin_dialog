@@ -15,9 +15,9 @@ name = "nu_plugin_dialog"
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
-dialoguer = { version = "0.10.4", features = ["fuzzy-select", "completion"] }
-nu-plugin = "0.78.0"
-nu-protocol = "0.78.0"
+dialoguer = { version = "0.11.0", features = ["fuzzy-select", "completion"] }
+nu-plugin = "0.87.0"
+nu-protocol = "0.87.0"
 
 # The profile that 'cargo dist' will build with
 [profile.dist]
@@ -29,6 +29,11 @@ lto = "thin"
 # The preferred cargo-dist version to use in CI (Cargo.toml SemVer syntax)
 cargo-dist-version = "0.0.5"
 # The preferred Rust toolchain to use in CI (rustup toolchain syntax)
-rust-toolchain-version = "1.67.1"
+rust-toolchain-version = "1.74.0"
 # Target platforms to build apps for (Rust target-triple syntax)
-targets = ["x86_64-unknown-linux-gnu", "x86_64-apple-darwin", "x86_64-pc-windows-msvc", "aarch64-apple-darwin"]
+targets = [
+    "x86_64-unknown-linux-gnu",
+    "x86_64-apple-darwin",
+    "x86_64-pc-windows-msvc",
+    "aarch64-apple-darwin",
+]

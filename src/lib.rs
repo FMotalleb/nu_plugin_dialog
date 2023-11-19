@@ -35,7 +35,7 @@ impl Plugin for DialogPlugin {
                     SyntaxShape::String,
                     "The question to ask the user.",
                 )
-                .switch("abortable", "If set users can abort the prompt.", None)
+                // .switch("abortable", "If set users can abort the prompt.", None)
                 .named(
                     "default",
                     SyntaxShape::Boolean,
@@ -51,7 +51,7 @@ impl Plugin for DialogPlugin {
                     "The items out of which one can be selected.",
                 )
                 .switch("fuzzy", "To add a fuzzy search to the select.", None)
-                .switch("abortable", "If set users can abort the prompt.", None)
+                // .switch("abortable", "If set users can abort the prompt.", None)
                 .named(
                     "prompt",
                     SyntaxShape::String,

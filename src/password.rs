@@ -9,19 +9,17 @@ impl DialogPlugin {
         call: &EvaluatedCall,
         _input: &Value,
     ) -> Result<Value, LabeledError> {
-        let mut pw_input = dialoguer::Password::with_theme(&*self.theme);
-
-        pw_input.allow_empty_password(call.has_flag("allow-empty"));
+        let mut pw_input = dialoguer::Password::with_theme(&*self.theme)
+            .allow_empty_password(call.has_flag("allow-empty"));
+        let span = call.head;
 
         if call.has_flag("confirm") {
-            pw_input.with_confirmation("Repeat your input", "Error: The inputs don't match");
+            pw_input =
+                pw_input.with_confirmation("Repeat your input", "Error: The inputs don't match");
         }
 
         let password = pw_input.ask(call.head)?;
 
-        Ok(Value::String {
-            val: password,
-            span: call.head,
-        })
+        Ok(Value::string(password, span))
     }
 }
